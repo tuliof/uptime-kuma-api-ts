@@ -1,0 +1,19 @@
+#!/bin/sh
+# Warn before rebasing branches that look like they might be shared.
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+protected="main master develop staging"
+
+for p in $protected; do
+    if [ "$branch" = "$p" ]; then
+        echo "⚠️  WARNING: You are about to rebase '$branch'."
+        echo "   This branch is typically shared with others."
+        echo "   Consider using 'git merge' instead of rebase."
+        echo ""
+        printf "   Rebase anyway? [y/N] "
+        read -r answer
+        if ! echo "$answer" | grep -qi "^y"; then
+            exit 1
+        fi
+    fi
+done

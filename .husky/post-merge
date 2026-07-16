@@ -1,0 +1,10 @@
+#!/bin/sh
+# Auto-install dependencies if lockfile changed after pull/merge.
+# Tries frozen first (faster if already up-to-date), falls back to full install.
+
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD 2>/dev/null)"
+
+if echo "$changed_files" | grep -q "bun.lock"; then
+    echo "📦 bun.lock changed — updating dependencies..."
+    bun install --frozen-lockfile 2>/dev/null || bun install
+fi

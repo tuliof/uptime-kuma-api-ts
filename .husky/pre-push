@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "🧪 Running full check suite..."
+bun run full-check

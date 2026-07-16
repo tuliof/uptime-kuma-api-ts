@@ -1,0 +1,14 @@
+[install]
+minimumReleaseAge = 1_209_600 # 14 days
+minimumReleaseAgeExcludes = ["typescript"]
+
+[run]
+noOrphans = true
+
+[test]
+root = "tests"
+timeout = 10000  # 10 seconds (default is 5000ms)
+coverage = true
+coverageThreshold = { line = 0.7, function = 0.8, statement = 0.9 }
+coverageReporter  = ["text", "lcov"]
+coveragePathIgnorePatterns = ["src/index.ts"]

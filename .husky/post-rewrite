@@ -1,0 +1,11 @@
+#!/bin/sh
+# Same as post-merge — reinstall deps if lockfile changed after rebase/amend.
+
+if [ "$1" = "rebase" ]; then
+    changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD 2>/dev/null)"
+
+    if echo "$changed_files" | grep -q "bun.lock"; then
+        echo "📦 bun.lock changed during rebase — updating dependencies..."
+        bun install --frozen-lockfile 2>/dev/null || bun install
+    fi
+fi

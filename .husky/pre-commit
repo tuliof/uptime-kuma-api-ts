@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "🔍 Auto-fixing lint..."
+bun run lint:fix
+
+echo "🔎 Running type-check..."
+bun run check

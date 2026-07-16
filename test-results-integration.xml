@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="bun test" tests="3" assertions="5" failures="0" skipped="0" time="5.305562">
+  <testsuite name="tests/integration.test.ts" file="tests/integration.test.ts" tests="3" assertions="5" failures="0" skipped="0" time="0" hostname="J7X17NTW1H">
+    <testsuite name="Uptime Kuma Integration Tests" file="tests/integration.test.ts" line="11" tests="3" assertions="5" failures="0" skipped="0" time="0" hostname="J7X17NTW1H">
+      <testcase name="connects and authenticates successfully" classname="Uptime Kuma Integration Tests" time="0.00003" file="tests/integration.test.ts" line="53" assertions="1" />
+      <testcase name="returns server info" classname="Uptime Kuma Integration Tests" time="0.000141" file="tests/integration.test.ts" line="57" assertions="2" />
+      <testcase name="returns server version" classname="Uptime Kuma Integration Tests" time="0.000042" file="tests/integration.test.ts" line="63" assertions="2" />
+    </testsuite>
+  </testsuite>
+</testsuites>
